@@ -3,296 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Legacy Left Behind | Mautasim</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Inter:wght@100;300;600&display=swap" rel="stylesheet">
+    <title>A Final Gift | Mautasim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #b39359;
-            --soft-white: #e5e5e5;
             --bg-deep: #080808;
-            --transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-deep);
-            color: var(--soft-white);
+            color: #fff;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- CINEMATIC OVERLAYS --- */
-        .vignette {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, transparent 40%, black 150%);
-            z-index: 5; pointer-events: none;
-        }
-
-        .grain {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_grain.png');
-            opacity: 0.04; z-index: 6; pointer-events: none;
-        }
-
-        /* --- SCROLL PROGRESS --- */
-        #progress {
-            position: fixed;
-            top: 0; left: 0; height: 2px;
-            background: var(--gold);
-            z-index: 100; transition: width 0.1s;
-        }
-
-        /* --- INTRO SECTION --- */
-        .hero {
-            height: 100vh;
+        /* Fixed: Use min-height so content never gets cut off */
+        section {
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            position: relative;
+            padding: 40px 20px;
         }
 
-        .hero span {
-            font-size: 0.7rem;
-            letter-spacing: 10px;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            display: block;
-            animation: fadeIn 3s ease;
-        }
-
+        /* --- HERO --- */
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 12vw, 8rem);
-            font-weight: 900;
-            line-height: 1;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1.1;
+            text-align: center;
         }
 
-        /* --- VIDEO GALLERY --- */
+        /* --- GALLERY --- */
         .gallery {
-            max-width: 1100px;
+            max-width: 900px;
+            width: 100%;
             margin: 0 auto;
-            padding: 100px 20px;
         }
 
         .memory-item {
-            margin-bottom: 250px;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: var(--transition);
-        }
-
-        .memory-item.reveal {
-            opacity: 1;
-            transform: translateY(0);
+            width: 100%;
+            margin-bottom: 100px;
         }
 
         .video-container {
-            position: relative;
             width: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
             background: #000;
-            padding: 2px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: border 0.5s;
         }
 
-        .video-container:hover { border-color: var(--gold); }
-
+        /* Fixed: Make video scale properly */
         video {
             width: 100%;
+            height: auto;
+            max-height: 80vh; /* Prevents video from being taller than screen */
             display: block;
-            filter: grayscale(40%) contrast(1.1);
-            transition: 0.8s;
         }
-
-        .video-container:hover video { filter: grayscale(0%) contrast(1); }
 
         .details {
-            display: flex;
-            margin-top: 40px;
-            gap: 40px;
+            margin-top: 20px;
+            text-align: left;
+            border-left: 2px solid var(--gold);
+            padding-left: 20px;
         }
 
-        .details .num {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            opacity: 0.5;
-        }
-
-        .details .text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .details .text p {
-            color: #666;
-            max-width: 400px;
-            font-weight: 200;
-            line-height: 1.8;
-        }
-
-        /* --- THE DEEP FAREWELL --- */
+        /* --- FAREWELL --- */
         .farewell {
-            min-height: 120vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 60px 20px;
-            position: relative;
-        }
-
-        .letter {
-            max-width: 750px;
+            background: linear-gradient(to bottom, #080808, #000);
             text-align: center;
         }
 
-        .letter h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 50px;
-            font-style: italic;
-        }
-
         .hinglish-deep {
-            font-size: 1.4rem;
-            line-height: 2.2;
-            font-weight: 300;
-            color: #ccc;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 50px;
         }
 
-        .hinglish-deep b {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .signature-block {
-            margin-top: 150px;
-            opacity: 0;
-            transition: opacity 3s ease;
-        }
-
-        .signature-block.show { opacity: 1; }
-
-        .signature-block p {
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            color: #444;
-            margin-bottom: 10px;
+        .signature {
+            margin-top: 50px;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+            width: 100%;
+            max-width: 300px;
         }
 
         .name {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            letter-spacing: 15px;
-            margin-left: 15px; /* Offset for spacing */
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            color: var(--gold);
         }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     </style>
 </head>
 <body>
 
-    <div id="progress"></div>
-    <div class="vignette"></div>
-    <div class="grain"></div>
-
     <section class="hero">
-        <span>A STORY BY MAUTASIM</span>
-        <h1>The Final<br>Frame.</h1>
-        <p style="margin-top:20px; color:#444; letter-spacing:3px;">GRADE 8 • END OF AN ERA</p>
+        <p style="letter-spacing: 5px; color: var(--gold); margin-bottom: 10px;">MAUTASIM PRESENTS</p>
+        <h1>The Final<br>Chapter.</h1>
     </section>
 
     <div class="gallery">
-        
         <div class="memory-item">
             <div class="video-container">
-                <video controls><source src="video1.mp4" type="video/mp4"></video>
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                </video>
             </div>
             <div class="details">
-                <div class="num">01</div>
-                <div class="text">
-                    <h3>The Echoes</h3>
-                    <p>Waqt guzarta gaya, par yeh pal wahin tham gaye hain. A glimpse into the noise and the laughter.</p>
-                </div>
+                <h3>The Laughter</h3>
+                <p>Grade 8 was special because of you guys.</p>
             </div>
         </div>
 
         <div class="memory-item">
             <div class="video-container">
-                <video controls><source src="video2.mp4" type="video/mp4"></video>
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                </video>
             </div>
             <div class="details">
-                <div class="num">02</div>
-                <div class="text">
-                    <h3>The Last Walk</h3>
-                    <p>Har ek mod par ek nayi kahani thi. Grade 8 was more than just a year; it was a feeling.</p>
-                </div>
+                <h3>The Goodbye</h3>
+                <p>Leaving a piece of my heart here.</p>
             </div>
         </div>
-
     </div>
 
     <section class="farewell">
-        <div class="letter">
-            <h2>Moving on, leaving bits of me behind.</h2>
-            
-            <div class="hinglish-deep">
-                <span>Agle saal, Grade 9 ke classrooms phir se bharenge,</span>
-                <span>Wahi corridor hoga, wahi purane dost honge...</span>
-                <span>Bas us bheed mein <b>main nazar nahi aunga nhi nhi ab school nhi aawo gah</b>.</span>
-                <br>
-                <span>"Maine socha jaane se pehle yeh yaadein aapke paas chodh jaun...</span>
-                <span>Taaki jab main wahan na rahoon, toh meri kami yeh videos poori kar dein."</span>
-                <br>
-                <span style="font-style: italic; font-size: 1.1rem; color: var(--gold);">Shayad raaste badal rahe hain, par manzil humein phir milayegi.</span>
-            </div>
+        <div class="hinglish-deep">
+            <p>"Aap sab Grade 9 mein saath rahoge,<br>
+            Bas is baar main wahan nahi honga.<br><br>
+            Jaane se pehle yeh yaadein aapke liye,<br>
+            Taaki humara saath hamesha yaad rahe."</p>
+        </div>
 
-            <div class="signature-block" id="sig">
-                <p>ALWAYS REMEMBERING YOU</p>
-                <h3 class="name">MAUTASIM</h3>
-            </div>
+        <div class="signature">
+            <p style="font-size: 0.7rem; color: #555; letter-spacing: 3px;">BY</p>
+            <h3 class="name">MAUTASIM</h3>
         </div>
     </section>
-
-    <script>
-        // Progress Bar
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progress").style.width = scrolled + "%";
-        };
-
-        // Intersection Observer for Reveal
-        const options = { threshold: 0.2 };
-        const revealObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal');
-                }
-            });
-        }, options);
-
-        document.querySelectorAll('.memory-item').forEach(item => revealObs.observe(item));
-
-        // Signature Observer
-        const sigObs = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                document.getElementById('sig').classList.add('show');
-            }
-        }, { threshold: 0.9 });
-
-        sigObs.observe(document.querySelector('.farewell'));
-    </script>
 
 </body>
 </html>
