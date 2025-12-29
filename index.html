@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Memories</title>
+    <style>
+        /* ... (Keep the previous body/root styles) ... */
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000; /* Black background for letterboxing */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* This forces all videos to have the same aspect ratio (optional) */
+        video {
+            width: 100%;
+            display: block;
+            object-fit: cover; /* Ensures video fills the box without stretching */
+            max-height: 500px; /* Limits height so it doesn't take up whole screen */
+        }
+
+        /* The Description Styling */
+        .memory-caption {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 12px 12px;
+            margin-bottom: 40px;
+        }
+
+        h2 { margin: 0; color: #333; font-size: 1.2rem; }
+        p { margin: 5px 0 0; color: #666; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center; color:#6c63ff;">2025 Highlights</h1>
+
+    <div style="max-width: 600px; width: 100%;">
+        <div class="video-wrapper">
+            <video controls>
+                <source src="my_video_1.mp4" type="video/mp4"> 
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="memory-caption">
+            <h2>Memory One</h2>
+            <p>The best day of the year.</p>
+        </div>
+    </div>
+
+    <div style="max-width: 600px; width: 100%;">
+        <div class="video-wrapper">
+            <video controls>
+                <source src="my_video_2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="memory-caption">
+            <h2>Memory Two</h2>
+            <p>Unforgettable moments.</p>
+        </div>
+    </div>
+
+</body>
+</html>
