@@ -3,78 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 Memories</title>
+    <title>2025 | The Recap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        /* ... (Keep the previous body/root styles) ... */
-        
+        :root {
+            --accent-color: #ff3e3e; /* Energetic Red/Orange */
+            --bg-color: #0d0d0d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f0f2f5;
+            background-color: var(--bg-color);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- HERO INTRO --- */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
+            text-align: center;
+            background: linear-gradient(45deg, #0d0d0d 30%, #1a1a1a 100%);
         }
 
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            border-radius: 12px;
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(4rem, 15vw, 8rem);
+            line-height: 0.8;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #666;
+        }
+
+        /* --- FRIENDS GALLERY --- */
+        .gallery {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .friend-card {
+            margin-bottom: 80px;
+            border-radius: 20px;
             overflow: hidden;
-            background: #000; /* Black background for letterboxing */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: #161616;
+            transition: transform 0.3s ease;
         }
 
-        /* This forces all videos to have the same aspect ratio (optional) */
         video {
             width: 100%;
             display: block;
-            object-fit: cover; /* Ensures video fills the box without stretching */
-            max-height: 500px; /* Limits height so it doesn't take up whole screen */
         }
 
-        /* The Description Styling */
-        .memory-caption {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            border-radius: 0 0 12px 12px;
-            margin-bottom: 40px;
+        .card-content {
+            padding: 25px;
         }
 
-        h2 { margin: 0; color: #333; font-size: 1.2rem; }
-        p { margin: 5px 0 0; color: #666; font-size: 0.9rem; }
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content p { color: #888; }
+
+        /* --- FRIENDSHIP OUTRO --- */
+        .outro {
+            padding: 100px 20px;
+            background: #000;
+            border-top: 1px solid #222;
+        }
+
+        .outro-msg {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .outro-msg h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .hinglish {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        .signature {
+            margin-top: 60px;
+        }
+
+        .signature h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+        }
+
+        .footer-text {
+            color: #444;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <h1 style="text-align:center; color:#6c63ff;">2025 Highlights</h1>
+    <section class="hero">
+        <p>MEMORIES OF</p>
+        <h1>2025</h1>
+        <p>THE frns EDITION</p>
+    </section>
 
-    <div style="max-width: 600px; width: 100%;">
-        <div class="video-wrapper">
-            <video controls>
-                <source src="video1.mp4" type="video/mp4"> 
-                Your browser does not support the video tag.
-            </video>
+    <div class="gallery">
+        
+        <div class="friend-card">
+            <video controls><source src="video1.mp4" type="video/mp4"></video>
+            <div class="card-content">
+                <h3>The Best Days</h3>
+                <p>When we had nothing to do but everything to enjoy.</p>
+            </div>
         </div>
-        <div class="memory-caption">
-            <h2>Memory One</h2>
-            <p>The best movements of the year.</p>
+
+        <div class="friend-card">
+            <video controls><source src="video2.mp4" type="video/mp4"></video>
+            <div class="card-content">
+                <h3>Vibing Together</h3>
+                <p>Ek aakhri baar, for the camera.</p>
+            </div>
         </div>
+
     </div>
 
-    <div style="max-width: 600px; width: 100%;">
-        <div class="video-wrapper">
-            <video controls>
-                <source src="video2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <section class="outro">
+        <div class="outro-msg">
+            <h2>See You Around!</h2>
+            <p>It was a wild ride with you guys. Even though I'm moving on to the next chapter, these moments are locked in forever.</p>
+            
+            <div class="hinglish">
+                "Saath mein bohot maze kiye, ab raaste alag ho rahe hain.<br>
+                Shayad roz na mil sakein, par bhoolna mat."
+            </div>
         </div>
-        <div class="memory-caption">
-            <h2>Memory Two</h2>
-            <p>Unforgettable moments.</p>
+
+        <div class="signature">
+            <p style="color: #666; font-size: 0.8rem;">WITH LOVE,</p>
+            <h4>MAUTASIM</h4>
+            <p class="footer-text">UNTIL NEXT TIME.</p>
         </div>
-    </div>
+    </section>
 
 </body>
 </html>
