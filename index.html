@@ -3,167 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 | The Recap</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+    <title>A Final Goodbye | Mautasim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@200;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent-color: #ff3e3e; /* Energetic Red/Orange */
-            --bg-color: #0d0d0d;
+            --accent: #d4af37;
+            --text-dim: #a0a0a0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-color);
-            color: #fff;
-            font-family: 'Outfit', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* --- HERO INTRO --- */
-        .hero {
+        /* --- VIGNETTE EFFECT --- */
+        .vignette {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 20%, black 120%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* --- INTRO --- */
+        .intro {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(45deg, #0d0d0d 30%, #1a1a1a 100%);
+            padding: 20px;
         }
 
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(4rem, 15vw, 8rem);
-            line-height: 0.8;
-            color: var(--accent-color);
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            color: #666;
-        }
-
-        /* --- FRIENDS GALLERY --- */
-        .gallery {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .friend-card {
-            margin-bottom: 80px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #161616;
-            transition: transform 0.3s ease;
-        }
-
-        video {
-            width: 100%;
-            display: block;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem;
+        .intro h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-style: italic;
             margin-bottom: 10px;
         }
 
-        .card-content p { color: #888; }
-
-        /* --- FRIENDSHIP OUTRO --- */
-        .outro {
-            padding: 100px 20px;
-            background: #000;
-            border-top: 1px solid #222;
+        .intro p {
+            letter-spacing: 4px;
+            color: var(--accent);
+            font-size: 0.7rem;
+            text-transform: uppercase;
         }
 
-        .outro-msg {
-            max-width: 600px;
+        /* --- VIDEO ARCHIVE --- */
+        .memories-container {
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            padding: 100px 20px;
         }
 
-        .outro-msg h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+        .video-item {
+            margin-bottom: 150px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .hinglish {
+        .video-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .frame {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px;
+            background: #000;
+        }
+
+        video { width: 100%; display: block; filter: contrast(1.1) saturate(0.8); }
+
+        .meta {
+            margin-top: 25px;
+            border-left: 1px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .meta h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 5px; }
+        .meta p { color: var(--text-dim); font-size: 0.9rem; font-weight: 200; }
+
+        /* --- THE FINAL MESSAGE --- */
+        .final-message {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to bottom, #050505, #000);
+        }
+
+        .message-content { max-width: 650px; }
+
+        .hinglish-deep {
             font-size: 1.3rem;
-            color: var(--accent-color);
-            margin: 30px 0;
-            font-weight: 500;
+            color: #eee;
+            margin-bottom: 50px;
+            font-weight: 200;
+        }
+
+        .hinglish-deep span { display: block; margin-bottom: 25px; }
+
+        .departure-text {
+            color: var(--accent);
+            font-style: italic;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
         .signature {
-            margin-top: 60px;
+            margin-top: 50px;
+            opacity: 0;
+            transition: opacity 4s ease;
         }
 
-        .signature h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            letter-spacing: 5px;
+        .signature.show { opacity: 1; }
+
+        .signature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            letter-spacing: 6px;
         }
 
-        .footer-text {
+        /* --- ANIMATIONS --- */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
             color: #444;
-            font-size: 0.8rem;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <p>MEMORIES OF</p>
-        <h1>2025</h1>
-        <p>THE frns EDITION</p>
+    <div class="vignette"></div>
+
+    <section class="intro">
+        <h1>Before I go.</h1>
+        <p>A Personal Note by Mautasim</p>
+        <div class="scroll-hint">SCROLL SLOWLY</div>
     </section>
 
-    <div class="gallery">
+    <div class="memories-container">
         
-        <div class="friend-card">
-            <video controls><source src="video1.mp4" type="video/mp4"></video>
-            <div class="card-content">
-                <h3>The Best Days</h3>
-                <p>When we had nothing to do but everything to enjoy.</p>
+        <div class="video-item">
+            <div class="frame">
+                <video controls><source src="video1.mp4" type="video/mp4"></video>
+            </div>
+            <div class="meta">
+                <h2>The Times We Built</h2>
+                <p>Memories stay, even when people move on.</p>
             </div>
         </div>
 
-        <div class="friend-card">
-            <video controls><source src="video2.mp4" type="video/mp4"></video>
-            <div class="card-content">
-                <h3>Vibing Together</h3>
-                <p>Ek aakhri baar, for the camera.</p>
+        <div class="video-item">
+            <div class="frame">
+                <video controls><source src="video2.mp4" type="video/mp4"></video>
+            </div>
+            <div class="meta">
+                <h2>The Reflection</h2>
+                <p>Looking back at our 8th grade journey together.</p>
             </div>
         </div>
 
     </div>
 
-    <section class="outro">
-        <div class="outro-msg">
-            <h2>See You Around!</h2>
-            <p>It was a wild ride with you guys. Even though I'm moving on to the next chapter, these moments are locked in forever.</p>
+    <section class="final-message">
+        <div class="message-content">
+            <p class="departure-text">As most of you stay together for 9th grade, my journey is taking a different turn.</p>
             
-            <div class="hinglish">
-                "Saath mein bohot maze kiye, ab raaste alag ho rahe hain.<br>
-                Shayad roz na mil sakein, par bhoolna mat."
+            <div class="hinglish-deep">
+                <span>"Aap sab agle saal phir yahin miloge, wahi baatein hongi, wahi maza hoga... Bas is baar main wahan nahi rahoon ga."</span>
+                <span>"Maine socha jaane se pehle yeh yaadein aapke paas chodh jaun, taaki jab bhi in videos ko dekho, toh yaad aaye ki humne yeh waqt saath jiya tha."</span>
+                <span style="color: var(--accent); font-weight: 400;">Mujhe bhoolna mat.</span>
+            </div>
+
+            <div class="signature" id="finalSign">
+                <p style="font-size: 0.7rem; color: #555; letter-spacing: 3px;">THANK YOU FOR THE MEMORIES</p>
+                <h3>MAUTASIM</h3>
             </div>
         </div>
-
-        <div class="signature">
-            <p style="color: #666; font-size: 0.8rem;">WITH LOVE,</p>
-            <h4>MAUTASIM</h4>
-            <p class="footer-text">UNTIL NEXT TIME.</p>
-        </div>
     </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.video-item').forEach(el => observer.observe(el));
+
+        const signObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                document.getElementById('finalSign').classList.add('show');
+            }
+        }, { threshold: 0.8 });
+
+        signObserver.observe(document.querySelector('.final-message'));
+    </script>
 
 </body>
 </html>
