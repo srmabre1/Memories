@@ -3,133 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01-01-2026 | Mautasim</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <title>The Final Goodbye | Mautasim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --bg-deep: #050505;
+            --bg: #050505;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-deep);
+            background-color: var(--bg);
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            line-height: 1.8;
         }
 
         section {
             width: 100%;
-            min-height: 100vh;
+            min-height: 100vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 60px 20px;
+            padding: 100px 24px;
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- INTRO --- */
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(3rem, 10vw, 6rem);
+            font-style: italic;
             text-align: center;
             line-height: 1.1;
         }
 
         /* --- VIDEOS --- */
-        .video-card {
+        .video-wrapper {
             max-width: 850px;
             width: 100%;
-            margin-bottom: 50px;
-            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 60px;
+            border: 1px solid rgba(255,255,255,0.05);
+            background: #000;
         }
 
         video {
             width: 100%;
-            height: auto;
-            max-height: 75vh;
             display: block;
+            border-bottom: 3px solid var(--gold);
         }
 
-        /* --- NEW YEAR 2026 FOCUS --- */
-        .new-year-box {
+        /* --- DEEP TEXT BOX --- */
+        .message-container {
+            max-width: 700px;
             text-align: center;
-            margin: 60px 0;
-            padding: 40px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .date-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+        .main-msg {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 300;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .main-msg b {
             color: var(--gold);
-            letter-spacing: 10px;
-            margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .wish-text {
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        .sub-msg {
+            color: #888;
+            font-size: 1rem;
+            font-style: italic;
         }
 
-        .hinglish {
-            max-width: 600px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #aaa;
-            margin: 0 auto;
-        }
-
-        /* --- SIGNATURE --- */
-        .name-tag {
-            margin-top: 100px;
+        /* --- OUTRO --- */
+        .outro-name {
+            margin-top: 120px;
             text-align: center;
         }
 
-        .name-tag h2 {
+        .outro-name h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: clamp(3rem, 8vw, 5rem);
             letter-spacing: 12px;
+            background: linear-gradient(to bottom, #fff 30%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 900;
         }
+
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <p style="letter-spacing: 4px; color: #555; margin-bottom: 15px;">THE FINAL MEMORY</p>
-        <h1>Before the<br>New Chapter.</h1>
+        <p class="reveal" style="letter-spacing: 5px; color: var(--gold); font-size: 0.8rem; margin-bottom: 20px;">01 • 01 • 2026</p>
+        <h1 class="reveal">The End of <br> Our Era.</h1>
     </section>
 
-    <section style="min-height: auto;">
-        <div class="video-card">
+    <section style="min-height: auto; padding-top: 0;">
+        <div class="video-wrapper reveal">
             <video controls><source src="video1.mp4" type="video/mp4"></video>
         </div>
-        <div class="video-card">
+        <div class="video-wrapper reveal">
             <video controls><source src="video2.mp4" type="video/mp4"></video>
         </div>
     </section>
 
     <section>
-        <div class="new-year-box">
-            <p class="wish-text">Happy New Year</p>
-            <h2 class="date-text">01.01.2026</h2>
-            <div class="hinglish">
-                "Aaj se naya saal shuru ho raha hai, aur mera school mein aakhri din bhi peeche chodh gaya...<br><br>
-                Aap sab Grade 9 saath mein enjoy karna. Main kahin bhi rahoon, yeh yaadein hamesha mere paas rahengi."
+        <div class="message-container">
+            <div class="reveal main-msg">
+                "Ab aap kuch months kay baadh... <br>
+                Phir se usi school, usi class mein hoge. <br>
+                Sab kuch waisa hi hoga, wahi halla, wahi masti... <br>
+                Bas <b>main wahan nahi honga</b>."
             </div>
+
+            <div class="reveal sub-msg" style="transition-delay: 0.3s;">
+                "Life humein alag raste pe le ja rahi hai, <br>
+                par yeh videos hamesha yaad dilayengi ki <br>
+                humne yeh waqt kitni khoobsurati se jiya tha."
+            </div>
+
+            <p class="reveal" style="margin-top: 40px; color: var(--gold); letter-spacing: 2px; transition-delay: 0.5s;">
+                HAPPY NEW YEAR 2026
+            </p>
         </div>
 
-        <div class="name-tag">
-            <p style="font-size: 0.7rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 10px;">SIGNING OFF FOREVER</p>
+        <div class="outro-name reveal" style="transition-delay: 0.8s;">
+            <p style="font-size: 0.7rem; letter-spacing: 4px; color: #444; margin-bottom: 10px;">WITH LOVE AND GRATITUDE</p>
             <h2>MAUTASIM</h2>
         </div>
     </section>
+
+    <script>
+        // Reveal elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
