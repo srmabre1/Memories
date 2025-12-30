@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 | A Gift by Mautasim</title>
+    <title>01-01-2026 | Mautasim</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -28,79 +28,73 @@
             justify-content: center;
             align-items: center;
             padding: 60px 20px;
-            position: relative;
         }
 
         /* --- INTRO --- */
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-size: clamp(3rem, 10vw, 6rem);
             text-align: center;
-            line-height: 1;
+            line-height: 1.1;
         }
 
-        /* --- VIDEO BOXES --- */
+        /* --- VIDEOS --- */
         .video-card {
             max-width: 850px;
             width: 100%;
-            margin-bottom: 80px;
-            border: 1px solid rgba(255,255,255,0.05);
-            background: #000;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         video {
             width: 100%;
             height: auto;
-            max-height: 70vh;
+            max-height: 75vh;
             display: block;
         }
 
-        /* --- THE DEEP MESSAGE --- */
-        .message-box {
-            max-width: 700px;
+        /* --- NEW YEAR 2026 FOCUS --- */
+        .new-year-box {
             text-align: center;
-            margin-bottom: 50px;
+            margin: 60px 0;
+            padding: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .hinglish {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #ccc;
-            margin-top: 20px;
-        }
-
-        /* --- NEW YEAR WISH (The Addition) --- */
-        .new-year-wish {
-            margin-top: 50px;
-            padding: 30px;
-            border: 1px solid var(--gold);
-            border-radius: 2px;
-            background: rgba(212, 175, 55, 0.05);
-            animation: glow 3s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
-            to { box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
-        }
-
-        .new-year-wish h2 {
+        .date-text {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 4rem;
             color: var(--gold);
+            letter-spacing: 10px;
             margin-bottom: 10px;
         }
 
+        .wish-text {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hinglish {
+            max-width: 600px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #aaa;
+            margin: 0 auto;
+        }
+
         /* --- SIGNATURE --- */
-        .signature {
-            margin-top: 80px;
+        .name-tag {
+            margin-top: 100px;
             text-align: center;
         }
 
-        .name {
+        .name-tag h2 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            letter-spacing: 10px;
+            letter-spacing: 12px;
             font-weight: 900;
         }
     </style>
@@ -108,8 +102,8 @@
 <body>
 
     <section class="hero">
-        <p style="letter-spacing: 5px; color: var(--gold); margin-bottom: 20px;">LAST GIFT OF GRADE 8</p>
-        <h1>The Final<br>Goodbye.</h1>
+        <p style="letter-spacing: 4px; color: #555; margin-bottom: 15px;">THE FINAL MEMORY</p>
+        <h1>Before the<br>New Chapter.</h1>
     </section>
 
     <section style="min-height: auto;">
@@ -121,26 +115,19 @@
         </div>
     </section>
 
-    <section class="farewell">
-        <div class="message-box">
-            <p style="font-style: italic; color: var(--gold);">"Shayad kal main aap sabke saath na rahoon..."</p>
+    <section>
+        <div class="new-year-box">
+            <p class="wish-text">Happy New Year</p>
+            <h2 class="date-text">01.01.2026</h2>
             <div class="hinglish">
-                Aap sab Grade 9 mein saath rahoge, wahi classrooms honge... bas main wahan nahi honga. Jaane se pehle yeh yaadein aapke liye, taaki humara saath hamesha yaad rahe.
+                "Aaj se naya saal shuru ho raha hai, aur mera school mein aakhri din bhi peeche chodh gaya...<br><br>
+                Aap sab Grade 9 saath mein enjoy karna. Main kahin bhi rahoon, yeh yaadein hamesha mere paas rahengi."
             </div>
         </div>
 
-        <div class="new-year-wish">
-            <h2>Happy New Year</h2>
-            <p style="letter-spacing: 2px;">2025 & BEYOND</p>
-            <p style="margin-top: 15px; color: #888; font-size: 0.9rem;">
-                Naya saal, nayi shuruat. <br>
-                May this year bring you guys all the success.
-            </p>
-        </div>
-
-        <div class="signature">
-            <p style="font-size: 0.7rem; color: #444; letter-spacing: 4px; margin-bottom: 10px;">SIGNING OFF</p>
-            <h1 class="name">MAUTASIM</h1>
+        <div class="name-tag">
+            <p style="font-size: 0.7rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 10px;">SIGNING OFF FOREVER</p>
+            <h2>MAUTASIM</h2>
         </div>
     </section>
 
