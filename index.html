@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Final Gift | Mautasim</title>
+    <title>2025 | A Gift by Mautasim</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #b39359;
-            --bg-deep: #080808;
+            --gold: #d4af37;
+            --bg-deep: #050505;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* Fixed: Use min-height so content never gets cut off */
         section {
             width: 100%;
             min-height: 100vh;
@@ -28,124 +27,120 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            position: relative;
         }
 
-        /* --- HERO --- */
+        /* --- INTRO --- */
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 1.1;
+            font-size: clamp(3.5rem, 12vw, 7rem);
             text-align: center;
+            line-height: 1;
         }
 
-        /* --- GALLERY --- */
-        .gallery {
-            max-width: 900px;
+        /* --- VIDEO BOXES --- */
+        .video-card {
+            max-width: 850px;
             width: 100%;
-            margin: 0 auto;
-        }
-
-        .memory-item {
-            width: 100%;
-            margin-bottom: 100px;
-        }
-
-        .video-container {
-            width: 100%;
-            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 80px;
+            border: 1px solid rgba(255,255,255,0.05);
             background: #000;
         }
 
-        /* Fixed: Make video scale properly */
         video {
             width: 100%;
             height: auto;
-            max-height: 80vh; /* Prevents video from being taller than screen */
+            max-height: 70vh;
             display: block;
         }
 
-        .details {
-            margin-top: 20px;
-            text-align: left;
-            border-left: 2px solid var(--gold);
-            padding-left: 20px;
-        }
-
-        /* --- FAREWELL --- */
-        .farewell {
-            background: linear-gradient(to bottom, #080808, #000);
-            text-align: center;
-        }
-
-        .hinglish-deep {
-            font-size: clamp(1.1rem, 4vw, 1.4rem);
-            line-height: 1.8;
+        /* --- THE DEEP MESSAGE --- */
+        .message-box {
             max-width: 700px;
+            text-align: center;
             margin-bottom: 50px;
         }
 
-        .signature {
+        .hinglish {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-top: 20px;
+        }
+
+        /* --- NEW YEAR WISH (The Addition) --- */
+        .new-year-wish {
             margin-top: 50px;
-            border-top: 1px solid #222;
-            padding-top: 30px;
-            width: 100%;
-            max-width: 300px;
+            padding: 30px;
+            border: 1px solid var(--gold);
+            border-radius: 2px;
+            background: rgba(212, 175, 55, 0.05);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+            to { box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+        }
+
+        .new-year-wish h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* --- SIGNATURE --- */
+        .signature {
+            margin-top: 80px;
+            text-align: center;
         }
 
         .name {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            letter-spacing: 5px;
-            color: var(--gold);
+            font-size: 3.5rem;
+            letter-spacing: 10px;
+            font-weight: 900;
         }
-
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <p style="letter-spacing: 5px; color: var(--gold); margin-bottom: 10px;">MAUTASIM PRESENTS</p>
-        <h1>The Final<br>Chapter.</h1>
+        <p style="letter-spacing: 5px; color: var(--gold); margin-bottom: 20px;">LAST GIFT OF GRADE 8</p>
+        <h1>The Final<br>Goodbye.</h1>
     </section>
 
-    <div class="gallery">
-        <div class="memory-item">
-            <div class="video-container">
-                <video controls>
-                    <source src="video1.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="details">
-                <h3>The Laughter</h3>
-                <p>Grade 8 was special because of you guys.</p>
-            </div>
+    <section style="min-height: auto;">
+        <div class="video-card">
+            <video controls><source src="video1.mp4" type="video/mp4"></video>
         </div>
-
-        <div class="memory-item">
-            <div class="video-container">
-                <video controls>
-                    <source src="video2.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="details">
-                <h3>The Goodbye</h3>
-                <p>Leaving a piece of my heart here.</p>
-            </div>
+        <div class="video-card">
+            <video controls><source src="video2.mp4" type="video/mp4"></video>
         </div>
-    </div>
+    </section>
 
     <section class="farewell">
-        <div class="hinglish-deep">
-            <p>"Aap sab Grade 9 mein saath rahoge,<br>
-            Bas is baar main wahan nahi honga.<br><br>
-            Jaane se pehle yeh yaadein aapke liye,<br>
-            Taaki humara saath hamesha yaad rahe."</p>
+        <div class="message-box">
+            <p style="font-style: italic; color: var(--gold);">"Shayad kal main aap sabke saath na rahoon..."</p>
+            <div class="hinglish">
+                Aap sab Grade 9 mein saath rahoge, wahi classrooms honge... bas main wahan nahi honga. Jaane se pehle yeh yaadein aapke liye, taaki humara saath hamesha yaad rahe.
+            </div>
+        </div>
+
+        <div class="new-year-wish">
+            <h2>Happy New Year</h2>
+            <p style="letter-spacing: 2px;">2025 & BEYOND</p>
+            <p style="margin-top: 15px; color: #888; font-size: 0.9rem;">
+                Naya saal, nayi shuruat. <br>
+                May this year bring you guys all the success.
+            </p>
         </div>
 
         <div class="signature">
-            <p style="font-size: 0.7rem; color: #555; letter-spacing: 3px;">BY</p>
-            <h3 class="name">MAUTASIM HaPpY NeW YeAr 😜</h3>
+            <p style="font-size: 0.7rem; color: #444; letter-spacing: 4px; margin-bottom: 10px;">SIGNING OFF</p>
+            <h1 class="name">MAUTASIM</h1>
         </div>
     </section>
 
